@@ -1,0 +1,173 @@
+//VECTOR
+
+
+A vector is a dynamic array that can grow and shrink in size.
+It is part of the C++ Standard Template Library (STL) and provides a way to store a collection of elements.
+Vectors are implemented as dynamic arrays, which means they can change their size during runtime.
+
+ //Declaration and Initialization
+To declare a vector, you need to include the <vector> header file. You can initialize
+a vector in several ways:
+    
+    vector<int> v1; // Empty vector
+    
+    vector<int> v2(5); // Vector of size 5, initialized with default values (0 for int)
+
+    vector<int> v2(5,10); // Vector of size 5, initialized with 10
+
+
+// Direct Initialization
+You can also initialize a vector with a list of values using curly braces:
+
+    vector<int> v3={1,2,3,4,5}; // Vector initialized with values 1, 2, 3, 4, 5
+
+// Accessing Elements
+You can access elements of a vector using the subscript operator [] or the at() method: 
+    
+    v3[0]; // Accesses the first element (1)
+    v3.at(1); // Accesses the second element (2)
+
+// Adding Elements
+You can add elements to a vector using the push_back() method, which adds an element to the end of the vector:
+
+    v3.push_back(6); // Adds 6 to the end of the vector
+
+//Updating Elements
+You can update elements in a vector by accessing them using the subscript operator or the at() method and assigning a new value:
+
+    v3[0] = 10; // Updates the first element to 10
+    v3.at(1) = 20; // Updates the second element to 20
+
+//Swap Elements
+
+You can swap elements in a vector using the std::swap function or the swap() method of the vector:
+
+    std::swap(v3[0], v3[1]); // Swaps the first and second elements
+    v3.swap(v2); // Swaps the contents of v3 and v2
+    swap(v3, v2); // Swaps the contents of v3 and v2 using std::swap
+
+//Removing Elements
+You can remove elements from a vector using the pop_back() method, which removes the last element
+ 
+    v3.pop_back(); // Removes the last element from the vector
+
+//Adding element/vector at index
+
+You can add an element or another vector at a specific index using the insert() method:
+
+    v3.insert(v3.begin() + 2, 15); // Inserts 15 at index 2
+    v3.insert(v3.end(), v2.begin(), v2.end()); // Inserts all elements of v2 starting at end of v3
+
+
+// Location of element 
+
+To find index of any element in a vector, you can use the std::find algorithm from the <algorithm> header:
+
+
+  Synatx: int index=find(v.begin(),v.end(),element)-v.begin();   
+
+    auto it = std::find(v3.begin(), v3.end(), 20); // Finds the first occurrence of 20
+    if (it != v3.end()) {
+        int index = std::distance(v3.begin(), it); // Gets the index of the found element
+    } else {
+        // Element not found
+    }
+
+ // imp : if it does not return index, then it will display array size, which is v3.size() in this case. So, if the element is not found, the index will be equal to the size of the vector.
+    
+ //Reverse a vector
+
+You can reverse the elements of a vector using the std::reverse algorithm from the <algorithm> header:
+
+    reverse(v3.begin(), v3.end()); // Reverses the elements of v3
+
+// Sum, max , min of vector
+
+You can calculate the sum, maximum, and minimum of the elements in a vector using the std::accumulate, std::max_element, and std::min_element algorithms from the <numeric> and <algorithm> headers:
+
+    int sum = std::accumulate(v3.begin(), v3.end(), 0); // Calculates the sum of elements in v3
+    int maxElement = *max_element(v3.begin(), v3.end()); // Finds the maximum element in v3
+    int minElement = *min_element(v3.begin(), v3.end());   // Finds the minimum element in v3
+
+// sorting a vector
+
+You can sort the elements of a vector using the std::sort algorithm from the <algorithm> header. 
+It sorts the elements in ascending order by default, but you can also provide a custom comparison function to sort in a different order.
+
+    std::sort(v3.begin(), v3.end()); // Sorts the elements of v3 in ascending order
+
+   // descending order
+    std::sort(v3.begin(), v3.end(),greater<int>()); // Sorts the elements of v3 in descending order
+
+    // greater<int>() is a comparison function that defines the sorting order. It is part of the <functional> header.
+    // It is used to specify that the elements should be sorted in descending order.
+
+// Slicing a vector
+
+You can create a new vector that contains a subset of elements from an existing vector using the vector constructor that takes two iterators as arguments.
+This is often referred to as "slicing" a vector.
+
+ // direct slicing
+    vector<int> v4(v3.begin() + 1, v3.begin() + 4); // Creates a new vector v4 containing elements from index 1 to 3 of v3
+
+// use of assign() method for slicing
+    vector<int> v5;
+    v5.assign(v3.begin() + 2, v3.end()); // Assigns elements from index 2 to the end of v3 to v5
+
+// Looping through a vector
+You can loop through the elements of a vector using a range-based for loop or an iterator-based loop:
+
+    // Range-based for loop
+    for (const auto& element : v3) {
+        cout << element << " "; // Prints each element in v3 
+        //auto& is used to avoid copying the elements, and const ensures that the elements are not modified.
+    }
+    for (int i = 0; i < v3.size(); ++i) {
+        cout << v3[i] << " "; // Prints each element in v3
+    }
+    // Iterator-based loop
+    for (auto it = v3.begin(); it != v3.end(); ++it) {
+        cout << *it << " "; // Prints each element in v3
+    }
+
+
+2D Vectors
+
+A 2D vector is a vector of vectors, which allows you to create a matrix-like structure. You can declare and initialize a 2D vector as follows:
+
+  // Declaration
+ 
+  mat={{1,2,3},{4,5,6},{7,8,9}}; // 2D vector initialized with values
+
+  // Declaration and Initialization
+  vector<vector<int>> mat(n, vector<int>(m, 0)); // Creates an n x m 2D vector initialized with 0
+
+  // adding elements to a 2D vector
+  You can add elements to a 2D vector using the push_back() method:
+
+    mat.push_back({10, 11, 12}); // Adds a new row to the 2D vector
+    mat.push_back(vector<int>{13, 14, 15}); // Adds another new row to the 2D vector
+
+
+    // int n,m;
+    // cin >> n >>m;
+    // vector<vector<int>> mat(n,vector<int>(m)); // Creates an n x m 2D vector initialized with 0
+
+// looping through a 2D vector
+You can loop through the elements of a 2D vector using nested loops:
+
+ for(auto row: mat){
+    for(auto element: row){
+        cout << element << " "; // Prints each element in the row
+
+    }
+}
+
+// swapping elements in a 2D vector
+You can swap elements in a 2D vector using the std::swap function or the swap
+
+() method of the vector:
+
+    swap(mat[0][0], mat[1][1]); // Swaps the elements at (0,0) and (1,1)
+    mat[0].swap(mat[1]); // Swaps the entire first row with the second row
+    swap(mat[0], mat[1]); // Swaps the entire first row with the second row using std::swap
