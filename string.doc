@@ -29,14 +29,13 @@ reverse(s.begin(),s.end())
 
 9)// STRING ROTATION
 
-right rotation of string: formula: no.of rotations = no.of rotations % length of string
-                          substring = str.substr(len - no.of rotations, no.of rotations) + str.substr(0, len - no.of rotations);
+right rotation of string: formula:k = k % len
+                          substring = str.substr(len - k, k) + str.substr(0, len - k);
 
-left rotation of string: formula: no.of rotations = no.of rotations % length of string
-                         substring = str.substr(no.of rotations, len - no.of rotations) + str.substr(0, no.of rotations);  
+left rotation of string: formula:k = k % len
+                         substring = str.substr(k, len - k) + str.substr(0, k);  
 
 note: substr(start_index, length) is used to get the substring of a string.
-
 
 
 
