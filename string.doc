@@ -1,0 +1,42 @@
+string str_name="Hello";  // declaration
+
+int len=str_name.length();
+int len=str_name.size();
+
+3) character access
+char ch=str_name[index];
+
+4)Searching
+
+int index=myStr1.find(myStr2,from_index); //from_index=0 (default value), it is optional.
+
+//retruns first occurence of number else returns 1
+
+5) String Equality
+bool ans=(myStr1==myStr2)
+
+6)Insert
+
+mystr.insert(index, str/char)
+
+7) Frequency or count
+
+int free=count(mystr.begin(),mystr.end(),char);
+
+8)reverse
+
+reverse(s.begin(),s.end())
+
+9)// STRING ROTATION
+
+right rotation of string: formula: no.of rotations = no.of rotations % length of string
+                          substring = str.substr(len - no.of rotations, no.of rotations) + str.substr(0, len - no.of rotations);
+
+left rotation of string: formula: no.of rotations = no.of rotations % length of string
+                         substring = str.substr(no.of rotations, len - no.of rotations) + str.substr(0, no.of rotations);  
+
+note: substr(start_index, length) is used to get the substring of a string.
+
+
+
+
