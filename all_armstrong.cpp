@@ -19,10 +19,13 @@ int main(){
     int low, up;
     cin >> low;
     cin >> up;
+    int arm=0;
     for(int i=low;i<up;i++){
         if(i==armstrong_number(i)){
             cout << i << " ";
+            arm++;
         }
     }
+    if(arm==0)  cout <<-1;
 }
 
