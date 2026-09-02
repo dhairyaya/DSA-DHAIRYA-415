@@ -38,4 +38,10 @@ left rotation of string: formula:k = k % len
 note: substr(start_index, length) is used to get the substring of a string.
 
 
+to_string(num);  //int to string conversion
+
+pow(num, exp); //num^exp in C++
+
+
+
 
